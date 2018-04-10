@@ -493,7 +493,7 @@ public class playFair : MonoBehaviour
                 }
                 else
                 {
-                    DebugMsg("What the actual fuck is happening, you should not see this");
+                    DebugMsg("What the actual flock is happening, you should not see this! Notify the author!");
                 }
             }
         }
@@ -528,7 +528,7 @@ public class playFair : MonoBehaviour
 
     protected void Deactivation()
     {
-        DebugMsg("Module deactivated");
+        DebugMsg("Module deactivated"); //Why is this here again?
 
         ScreenText.text = "";
     }
@@ -888,7 +888,7 @@ public class playFair : MonoBehaviour
                 }
                 else
                 {
-                    DebugMsg("BreakTwitchxd");
+                    //DebugMsg("BreakTwitchxd");
                     yield break;
                 }
             }
@@ -898,7 +898,7 @@ public class playFair : MonoBehaviour
                 yield return null;
                 foreach (var bpress in buttons)
                 {
-                    DebugMsg("xd");
+                    //DebugMsg("xd");
                     bpress.OnInteract();
                     yield return new WaitForSeconds(.1f);
                 }
