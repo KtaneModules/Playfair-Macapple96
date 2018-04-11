@@ -10,7 +10,9 @@
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<style>
-		table.table td { text-align: center; }
+		table.table { border: none; }
+		table.table td { text-align: center; border-collapse: collapse; }
+		table.table td.no-border { border: none; }
 	</style>
 </head>
 <body>
@@ -27,43 +29,38 @@
 					Encrypting secrets since 1854, exploding bombs since 2018.
 				</p>
 
-				<p> Your purpose is to decrypt an encrypted message. Find the key, decrypt the message, insert correct button sequence; Easy, right?</p>
+				<p>Your purpose is to decrypt an encrypted message. Find the key, decrypt the message and press the correct button sequence. Easy, right?</p>
 				<h3>Obtaining the Key</h3>
-				<p>Find your two key parts in the following two tables. In each table, select the first one that applies.</p>
+				<p>Find the two key parts in the following two tables. In each table, stop at the first rule that applies.</p>
+				<h4>Part 1</h4>
 				<table class="table">
-					<thead>
-					<tr>
-						<th>Condition</th>
-						<th>Key part</th>
-					</tr>
-					</thead>
 					<tbody>
 					<tr>
-						<td>It's Monday*</td>
+						<th>It's Monday*</th>
 						<td>PLAY</td>
 					</tr>
 					<tr>
-						<td>It's Tuesday</td>
+						<th>It's Tuesday</th>
 						<td>HIDDEN</td>
 					</tr>
 					<tr>
-						<td>It's Wednesday*</td>
+						<th>It's Wednesday*</th>
 						<td>SECRET</td>
 					</tr>
 					<tr>
-						<td>It's Thursday</td>
+						<th>It's Thursday</th>
 						<td>CIPHER</td>
 					</tr>
 					<tr>
-						<td>It's Friday*</td>
+						<th>It's Friday*</th>
 						<td>FAIL</td>
 					</tr>
 					<tr>
-						<td>It's Saturday</td>
+						<th>It's Saturday</th>
 						<td>PARTYHARD</td>
 					</tr>
 					<tr>
-						<td>It's Sunday</td>
+						<th>It's Sunday</th>
 						<td>BECOZY</td>
 					</tr>
 					<tr>
@@ -74,8 +71,7 @@
 					</tbody>
 				</table>
 
-				<br>
-
+				<h4>Part 2</h4>
 				<table class="table">
 					<tbody>
 					<tr>
@@ -90,7 +86,7 @@
 						<th>Yellow</th>
 					</tr>
 					<tr>
-						<th>Bomb has Serial Port and Parallel Port</th>
+						<th>Bomb has Serial and Parallel Port</th>
 						<td>SAFE</td>
 						<td>EFAS</td>
 						<td>MESSAGE</td>
@@ -119,7 +115,7 @@
 					</tr>
 					</tbody>
 				</table>
-				<div class="page-footer relative-footer">Page 1 of 3</div>
+				<div class="page-footer relative-footer">Page 1 of 2</div>
 			</div>
 		</div>
 		<div class="page page-bg-02">
@@ -129,11 +125,11 @@
 			</div>
 
 			<div class="page-content">
-				<h3>Modifying the Key</h3>
-				<br>
+
+				<h3>Modifying the key</h3>
 				<ul>
 					<li>If the serial number doesn't contain a vowel, <b>swap</b> the parts.</li>
-					<li>If you have one or more strikes, add a third part:
+					<li>If you have one or more strikes, <b>add</b> a third part:
 						<ul>
 							<li>For one strike, add "ONE".</li>
 							<li>For two strikes, add "TWO".</li>
@@ -146,89 +142,68 @@
 					</li>
 				</ul>
 
-				<h4>The Key is now ready for use, for information on Playfair Decryption, consult Appendix #QIBAGYMP</h4>
-
-			</div>
-			<div class="page-footer">Page 2 of 3
-			</div>
-		</div>
-
-
-		<div class="page page-bg-06">
-			<div class="page-header">
-				<span class="page-header-doc-title">Keep Talking and Nobody Explodes Mod</span>
-				<span class="page-header-section-title">Playfair Cipher</span>
-			</div>
-			<div class="page-content">
-				<p>
-				<h2> Appendix #QIBAGYMP – Playfair Decryption 101</h2>
-				<p>
-					<strong>Playfair Ciphers</strong> work by encrypting a message in a 5x5 character matrix with the use of a specific Keyword, following precise rules.
-				</p>
+				<h3>Decrypting the message</h3>
 				<ul>
-					<li>Split the <b>Message</b> in character pairs</li>
-					<li>Remove repeating letters from the <b>Keyword</b></li>
-					<ul>
-						<li>In most Playfair Ciphers, this module included, 'J' and 'I' are interchangeable!</li>
-					</ul>
-					<li>Write down a 5x5 Matrix out of the characters of the alphabet, starting with your keyword.</li>
-					<ul>
-						<li>A single letter should only occur
-							<b>once</b> in the matrix, if the matrix is not 25 characters long you
-							<b>have</b> made a mistake!
-						</li>
-					</ul>
-				</ul>
-				<p align="center">Example <em>(KEY "PLAYFAIR")</em>:</p>
-				<table align="center">
-					<tbody>
-					<tr>
-						<th>P</th>
-						<th>L</th>
-						<th>A</th>
-						<th>Y</th>
-						<th>F</th>
-					</tr>
-					<tr>
-						<th>I</th>
-						<th>R</th>
-						<th>B</th>
-						<th>C</th>
-						<th>D</th>
-					</tr>
-					<tr>
-						<th>E</th>
-						<th>G</th>
-						<th>H</th>
-						<th>K</th>
-						<th>M</th>
-					</tr>
-					<tr>
-						<th>N</th>
-						<th>O</th>
-						<th>Q</th>
-						<th>S</th>
-						<th>T</th>
-					</tr>
-					<tr>
-						<th>U</th>
-						<th>V</th>
-						<th>W</th>
-						<th>X</th>
-						<th>Z</th>
-					</tr>
-					</tbody>
-				</table /align>
-				<br>
-				<p><strong>Read the Character pairs in the matrix and focus on their position</strong></p>
-				<ul>
-					<li>If the letters share their row, decrypt by reading the letters one space to the left of each letter.</li>
-					<li>If the letters share their column, decrypt by reading the letters one space above each letter.</li>
-					<ul>
-						<li>
-							<em>If you cannot shift upwards or to the left, wrap around to the other side of the matrix!</em>
-					</ul>
-					<li>If the letters are on different rows and coloumns, decrypt by reading the letter on the opposite corner of the rectangle they draw on the matrix.</li>
+					<li>
+						<div style="float: right; text-align: center; padding: 0 0 1rem 1rem">
+							<table>
+								<tbody>
+								<tr>
+									<td>P</td>
+									<td>L</td>
+									<td>A</td>
+									<td>Y</td>
+									<td>F</td>
+								</tr>
+								<tr>
+									<td>I</td>
+									<td>R</td>
+									<td>B</td>
+									<td>C</td>
+									<td>D</td>
+								</tr>
+								<tr>
+									<td>E</td>
+									<td>G</td>
+									<td>H</td>
+									<td>K</td>
+									<td>M</td>
+								</tr>
+								<tr>
+									<td>N</td>
+									<td>O</td>
+									<td>Q</td>
+									<td>S</td>
+									<td>T</td>
+								</tr>
+								<tr>
+									<td>U</td>
+									<td>V</td>
+									<td>W</td>
+									<td>X</td>
+									<td>Z</td>
+								</tr>
+								</tbody>
+							</table>
+							Example with<br/>
+							key "PLAYFAIR"
+						</div>
+						Create a a 5x5 matrix out of the characters of the alphabet, starting with your <b>keyword</b>.
+						<ul>
+							<li>Each letter should only occur
+								<b>once</b> in the matrix, so only add the first occurrence.
+							</li>
+							<li>'J' and 'I' are interchangeable.</li>
+						</ul>
+					</li>
+					<li>Split the <b>message</b> in character pairs. For each pair:
+						<ul>
+							<li> If the letters appear on the same row of your matrix, replace them with the letters to their immediate left respectively, wrapping around to the right side of the row if necessary. In the example, NQ would become TO.</li>
+							<li>If the letters appear on the same column of your matrix, replace them with the letters immediately above, wrapping around to the bottom if necessary. In the example, OV would become GO.</li>
+							<li>If the letters are on different rows and columns, replace them with the letters on the same row respectively but at the other pair of corners of the rectangle defined by the original pair. In the example, SG would become OK.</li>
+						</ul>
+					</li>
+					<li>Drop any Xs that don't make sense and locate any Is that should be Js.</li>
 				</ul>
 
 			</div>
