@@ -346,14 +346,13 @@ public class playFair : MonoBehaviour
 
         int rule = 3;
 
-        if(Bomb.GetBatteryCount(Battery.D) > Bomb.GetBatteryCount(Battery.AA)) //Rule 3
+
+        if (Bomb.IsPortPresent(Port.Parallel) && Bomb.IsPortPresent(Port.Serial)) //Rule 1
         {
-            SKH = rule3[textcolor];
-            DebugMsg("Table 2 - Rule #" + rule + " Applies: \"D Batteries > AA Batteries\"");
+            SKH = rule1[textcolor];
+            DebugMsg("Table 2 - Rule #" + rule + " Applies: \"Both Parallel and Serial Ports are present\"");
             rule--;
         }
-
-        
 
         else if(Bomb.GetSerialNumberNumbers().Sum() > 10) //Rule 2
         {
@@ -362,10 +361,10 @@ public class playFair : MonoBehaviour
             rule--;
         }
 
-        else if(Bomb.IsPortPresent(Port.Parallel) && Bomb.IsPortPresent(Port.Serial)) //Rule 1
+       else if (Bomb.GetBatteryCount(Battery.D) > Bomb.GetBatteryCount(Battery.AA)) //Rule 3
         {
-            SKH = rule1[textcolor];
-            DebugMsg("Table 2 - Rule #" + rule + " Applies: \"Both Parallel and Serial Ports are present\"");
+            SKH = rule3[textcolor];
+            DebugMsg("Table 2 - Rule #" + rule + " Applies: \"D Batteries > AA Batteries\"");
             rule--;
         }
 
