@@ -344,32 +344,41 @@ public class playFair : MonoBehaviour
         string[] rule2 = { "CODE", "EDOC", "QUIET", "ETIUQ" };
         string[] rule1 = { "SAFE", "EFAS", "MESSAGE", "GROOVE" };
 
-        int rule = 3;
+        
 
 
         if (Bomb.IsPortPresent(Port.Parallel) && Bomb.IsPortPresent(Port.Serial)) //Rule 1
         {
             SKH = rule1[textcolor];
-            DebugMsg("Table 2 - Rule #" + rule + " Applies: \"Both Parallel and Serial Ports are present\"");
-            rule--;
+            DebugMsg("Table 2 - Rule #1 Applies: \"Both Parallel and Serial Ports are present\"");
+            
         }
 
-        else if(Bomb.GetSerialNumberNumbers().Sum() > 10) //Rule 2
+        
+
+        else if (Bomb.GetSerialNumberNumbers().Sum() > 10) //Rule 2
         {
+            
             SKH = rule2[textcolor];
-            DebugMsg("Table 2 - Rule #" + rule + " Applies: \"Sum of Digits in Serial > 10\"");
-            rule--;
+            DebugMsg("Table 2 - Rule #2 Applies: \"Sum of Digits in Serial > 10\"");
+            
         }
+
+        
 
        else if (Bomb.GetBatteryCount(Battery.D) > Bomb.GetBatteryCount(Battery.AA)) //Rule 3
         {
+            
             SKH = rule3[textcolor];
-            DebugMsg("Table 2 - Rule #" + rule + " Applies: \"D Batteries > AA Batteries\"");
-            rule--;
+            DebugMsg("Table 2 - Rule #3 Applies: \"D Batteries > AA Batteries\"");
+            
         }
+
+        
 
         else
         {
+            
             SKH = rule4[textcolor]; //Otherwise
             DebugMsg("Table 2 - Rule #4 \"No other rule applied\"");
         }
@@ -637,6 +646,7 @@ public class playFair : MonoBehaviour
             }
         }
         DebugMsg("Output Matrix:\n" + output);
+        DebugMsg("End Matrix");
 
     }
 
