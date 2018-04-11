@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: ModConfig
   m_EditorClassIdentifier: 
   id: Playfair
-  title: Playfair Prompts
+  title: Playfair Cipher
   description: 'Playfair Cipher Module for Keep Talking and Nobody Explodes
 
 
@@ -26,6 +26,6 @@ MonoBehaviour:
 
 
 '
-  version: 1.0
+  version: 1.0.5b
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 8f221664ca1d583479094ed85df24098, type: 3}

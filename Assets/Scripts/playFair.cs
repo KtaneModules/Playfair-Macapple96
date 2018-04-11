@@ -337,7 +337,7 @@ public class playFair : MonoBehaviour
     void getSecondKeyHalf()
     {
 
-        DebugMsg("textcolor: " + textcolor);
+        //DebugMsg("textcolor: " + textcolor);
 
         string[] rule4 = { "MESSAGE", "EGASSEM", "SAFE", "EDOC" };
         string[] rule3 = { "GROOVE", "EVOORG", "TEIUQ", "QUITE" };
@@ -353,8 +353,6 @@ public class playFair : MonoBehaviour
             DebugMsg("Table 2 - Rule #1 Applies: \"Both Parallel and Serial Ports are present\"");
             
         }
-
-        
 
         else if (Bomb.GetSerialNumberNumbers().Sum() > 10) //Rule 2
         {
@@ -464,66 +462,54 @@ public class playFair : MonoBehaviour
     {
         if (!solved)
         {
-
-
-            if (!buttonsInteractable)
+            if (buttonsInteractable)
             {
-                DebugMsg("Module is not active!");
-                return;
-            }
+                Audio.PlaySoundAtTransform("tick", transform);
 
-            if (submittedAns.Length < 4)
-            {
-                if (correctAns.StartsWith(submittedAns))
+                if (!buttonsInteractable)
                 {
-                    DebugMsg("Submitted keys: " + submittedAns + ", so far so good!");
+                    DebugMsg("Module is not active!");
                     return;
                 }
+
+                if (submittedAns.Length < 4)
+                {
+                    if (correctAns.StartsWith(submittedAns))
+                    {
+                        DebugMsg("Submitted keys: " + submittedAns + ", so far so good!");
+                        return;
+                    }
+                    else
+                    {
+                        module.HandleStrike();
+                        DebugMsg("Submitted keys: " + submittedAns + ", WRONG! STRIKE!");
+                        buttonsInteractable = false;
+                        DisplayWrong();
+                        Invoke("reroll", 3);
+                        Invoke("runPlayfair", 3);
+                    }
+
+
+                }
                 else
                 {
-                    module.HandleStrike();
-                    DebugMsg("Submitted keys: " + submittedAns + ", WRONG! STRIKE!");
-                    buttonsInteractable = false;
-                    DisplayWrong();
-                    Invoke("reroll", 3);
-                    Invoke("runPlayfair", 3);
-                }
-
-
-            }
-            else
-            {
-                if (submittedAns == correctAns)
-                {
-                    module.HandlePass();
-                    solved = true;
-                    DisplayCorrect();
-                }
-                else
-                {
-                    DebugMsg("What the actual flock is happening, you should not see this! Notify the author!");
+                    if (submittedAns == correctAns)
+                    {
+                        module.HandlePass();
+                        DebugMsg(submittedAns + ". Correct! Module Solved!");
+                        solved = true;
+                        DisplayCorrect();
+                    }
+                    else
+                    {
+                        DebugMsg("What the actual f-lock is happening, you should not see this! Notify the author!");
+                    }
                 }
             }
+            else { DebugMsg("Buttons not interactable"); }
         }
-
-        /*if (submittedAns != correctAns)
-        {
-            DebugMsg("Expected " + correctAns + ", input was " + "\"" + submittedAns + "\", Strike!");
-            module.HandleStrike();
-            DisplayWrong();
-
-            Invoke("reroll", 3);
-        }
-        else
-        {
-            DebugMsg("Expected " + correctAns + ", input was " + "\"" + submittedAns + "\", Correct!");
-            prompts++;
-            module.HandlePass();
-            DisplayCorrect();
-            Invoke("ClearDisplay", 2);
-        }*/
-
-        Audio.PlaySoundAtTransform("tick", transform);
+        else { DebugMsg("Module already solved!"); }
+        
     }
 
     protected bool Solve()
@@ -619,8 +605,12 @@ public class playFair : MonoBehaviour
 
     void logMatrix(string key)
     {
+        DebugMsg("Beginning of Matrix");
+
         List<char> matrixout = new List<char>();
         var alphabet = "ABCDEFGHIKLMNOPQRSTUVWXYZ"; //missing 'J' on purpose
+        
+
 
         for (int i = 0; i < key.Length; i++)
         {
@@ -642,11 +632,11 @@ public class playFair : MonoBehaviour
             output += matrixout[i];
             if (i % 5 == 4)
             {
-                output += "\n";
+                DebugMsg(output);
+                output = "";
             }
         }
-        DebugMsg("Output Matrix:\n" + output);
-        DebugMsg("End Matrix");
+        DebugMsg("End of Matrix");
 
     }
 
