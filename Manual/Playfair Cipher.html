@@ -31,7 +31,7 @@
 
 				<p>Your purpose is to decrypt an encrypted message. Find the key, decrypt the message and press the correct button sequence. Easy, right?</p>
 				<h3>Obtaining the Key</h3>
-				<p>Find the two key parts in the following two tables. In each table, stop at the first rule that applies.</p>
+				<p>Find the two key parts using the following two tables. In each table, stop at the first rule that applies.</p>
 				<h4>Part 1</h4>
 				<table class="table">
 					<tbody>
@@ -198,15 +198,69 @@
 					</li>
 					<li>Split the <b>message</b> in character pairs. For each pair:
 						<ul>
-							<li> If the letters appear on the same row of your matrix, replace them with the letters to their immediate left respectively, wrapping around to the right side of the row if necessary. In the example, NQ would become TO.</li>
+							<li>If the letters appear on the same row of your matrix, replace them with the letters to their immediate left respectively, wrapping around to the right side of the row if necessary. In the example, NQ would become TO.</li>
 							<li>If the letters appear on the same column of your matrix, replace them with the letters immediately above, wrapping around to the bottom if necessary. In the example, OV would become GO.</li>
 							<li>If the letters are on different rows and columns, replace them with the letters on the same row respectively but at the other pair of corners of the rectangle defined by the original pair. In the example, SG would become OK.</li>
 						</ul>
 					</li>
 					<li>Drop any Xs that don't make sense and locate any Is that should be Js.</li>
 				</ul>
-
+			<table class="table">
+					<tbody>
+					<tr>
+						<td class="no-border"></td>
+						<td class="no-border"></td>
+						<th colspan="8">Decrypted Message</th>
+					</tr>
+					<tr>
+						<td class="no-border"></td>
+						<td class="no-border"></td>
+						<th>STRIKE</th>
+						<th>STROKE</th>
+						<th>STRIFE</th>
+						<th>STRIVE</th>
+						<th>BLOWUP</th>
+						<th>BLOWIN</th>
+						<th>BLOWIT</th>
+						<th>BLOWN</th>
+					</tr>
+					<tr>
+						<th rowspan = "4">Screen Text Color</th>
+						<th>Magenta</th>
+						<td>ABCD</td>
+						<td>DBAC</td>
+						<td>BCAD</td>
+						<td>CDBA</td>
+						<td>ADCB</td>
+						<td>ADBC</td>
+						<td>BCAD</td>
+						<td>BCDA</td>
+					</tr>
+					<tr>
+						<th>Blue</th>
+						<td>CODE</td>
+						<td>EDOC</td>
+						<td>QUIET</td>
+						<td>ETIUQ</td>
+					</tr>
+					<tr>
+						<th>Orange</th>
+						<td>GROOVE</td>
+						<td>EVOORG</td>
+						<td>TEIUQ</td>
+						<td>QUITE</td>
+					</tr>
+					<tr>
+						<th>Yellow</th>
+						<td>MESSAGE</td>
+						<td>EGASSEM</td>
+						<td>SAFE</td>
+						<td>EDOC</td>
+					</tr>
+					</tbody>
+				</table>
 			</div>
+			
 			<div class="page-footer relative-footer">Page 3 of 3
 			</div>
 		</div>
