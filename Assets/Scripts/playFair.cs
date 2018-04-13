@@ -41,7 +41,7 @@ public class playFair : MonoBehaviour
     string FinalKey = "";
     string correctAns = "";
     string submittedAns;
-    string[] possiblePrompts = { "STRIKE", "STROKE", "STRIFE", "STRIVE", "BLOWUP", "BLOWIN", "BLOWIT", "BLOWNX" };
+    string[] possiblePrompts = { "STRIKE", "STRIK", "STRYKE", "STRYK", "ZTRIKE", "ZTRIK", "ZTRYKE", "ZTRYK" };
     string[] possibleSolutions1 = { "ABCD", "BCDA", "CDAB", "DABC", "ABDC", "BDCA", "CABD", "DCAB" };
     string[] possibleSolutions2 = { "CDAB", "DACB", "ACBD", "CBDA", "BDAC", "DBCA", "BCAD", "CADB" };
     string[] possibleSolutions3 = { "BADC", "ADCB", "DCBA", "CBAD", "BACD", "ACDB", "CDBA", "DBAC" };
@@ -79,7 +79,7 @@ public class playFair : MonoBehaviour
         _moduleId = _moduleIdCounter++;
         DOW = DateTime.Now.DayOfWeek.ToString();
 
-        textcolor = Random.Range(0, 3);
+        textcolor = Random.Range(0, 4);
 
         reroll();
 
@@ -545,7 +545,7 @@ public class playFair : MonoBehaviour
     ///Logs a message
     void DebugMsg(string message)
     {
-        Debug.LogFormat("[Playfair #{0}]: {1}", _moduleId, message);
+        Debug.LogFormat("[playFair #{0}]: {1}", _moduleId, message);
     }
 
 
@@ -598,7 +598,7 @@ public class playFair : MonoBehaviour
         if (textcolor == 1) { correctAns = possibleSolutions2[solutionnumber]; DebugMsg("Message is " + "\"" + answer + "\", color is Blue, expecting " + "\"" + correctAns + "\""); }
         if (textcolor == 2) { correctAns = possibleSolutions3[solutionnumber]; DebugMsg("Message is " + "\"" + answer + "\", color is Orange, expecting " + "\"" + correctAns + "\""); }
         if (textcolor == 3) { correctAns = possibleSolutions4[solutionnumber]; DebugMsg("Message is " + "\"" + answer + "\", color is Yellow, expecting " + "\"" + correctAns + "\""); }
-
+        
     }
 
 
@@ -734,20 +734,7 @@ public class playFair : MonoBehaviour
                     alphabetIDCounter++;
 
                 }
-                var curPos = "";
 
-                for (int yG = 0; yG < 5; yG++)
-                {
-                    for (int xG = 0; xG < 5; xG++)
-                    {
-                        if (xG == 0) curPos += "[Playfair #" + _moduleId + "] ";
-
-                        //curPos += " " + matrix[x, y];
-
-                        if (xG == 5) curPos += "\n";
-
-                    }
-                }
 
             }
         }
@@ -829,7 +816,7 @@ public class playFair : MonoBehaviour
             wasOdd = true;
         }
 
-        Debug.LogFormat("[Playfair #{0}] Was the Text Odd?: {1}", _moduleId, wasOdd);
+        //Debug.LogFormat("[Playfair #{0}] Was the Text Odd?: {1}", _moduleId, wasOdd);
 
         getPairs(text);
     }

@@ -11,12 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615501dbe4f3fe94fbf4b564abb10237, type: 3}
   m_Name: ModConfig
   m_EditorClassIdentifier: 
-  id: Playfair
+  id: playFair
   title: Playfair Cipher
   description: 'Playfair Cipher Module for Keep Talking and Nobody Explodes
 
 
-    Module ID: Playfair
+    Module ID: playFair
 
 
     Manual: https://docs.google.com/document/d/1BQWDyord5Hu0IAd5oT3NAjgBunE2nGeEtAn4ucL0M_w/edit?usp=sharing

@@ -1419,7 +1419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - GUI/Text Shader
+  - GUI/KT 3D Text
 --- !u!114 &114201584934839990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1468,7 +1468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - GUI/Text Shader
+  - GUI/KT 3D Text
 --- !u!114 &114328150546685422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1610,7 +1610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - GUI/Text Shader
+  - GUI/KT 3D Text
 --- !u!114 &114611891330366782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1675,7 +1675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - GUI/Text Shader
+  - GUI/KT 3D Text
 --- !u!114 &114751778798967374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1710,7 +1710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - GUI/Text Shader
+  - GUI/KT 3D Text
 --- !u!114 &114796199109364862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1749,7 +1749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ModuleType: Playfair
-  ModuleDisplayName: Playfair
+  ModuleDisplayName: playFair
   RequiresTimerVisibility: 0
 --- !u!114 &114881794759006676
 MonoBehaviour:
