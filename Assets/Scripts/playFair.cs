@@ -38,7 +38,6 @@ public class playFair : MonoBehaviour
     string Key = "";
     string BufferKey = "";
     string Strikes = "";
-    string FinalKey = "";
     string correctAns = "";
     string submittedAns;
     string[] possiblePrompts = { "STRIKE", "STRIK", "STRYKE", "STRYK", "ZTRIKE", "ZTRIK", "ZTRYKE", "ZTRYK" };
@@ -545,7 +544,7 @@ public class playFair : MonoBehaviour
     ///Logs a message
     void DebugMsg(string message)
     {
-        Debug.LogFormat("[playFair #{0}]: {1}", _moduleId, message);
+        Debug.LogFormat("[Playfair Cipher #{0}]: {1}", _moduleId, message);
     }
 
 
@@ -809,11 +808,11 @@ public class playFair : MonoBehaviour
     //If Text to Encrypt length is odd add "X"
     protected void checkOdd(string text)
     {
-        bool wasOdd = false;
+        //bool wasOdd = false;
         if ((text.Length % 2 > 0))
         {
             text += "X";
-            wasOdd = true;
+            //wasOdd = true;
         }
 
         //Debug.LogFormat("[Playfair #{0}] Was the Text Odd?: {1}", _moduleId, wasOdd);

@@ -1749,7 +1749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ModuleType: Playfair
-  ModuleDisplayName: playFair
+  ModuleDisplayName: Playfair Cipher
   RequiresTimerVisibility: 0
 --- !u!114 &114881794759006676
 MonoBehaviour:
