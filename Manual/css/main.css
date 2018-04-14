@@ -272,37 +272,57 @@ td, th {
     background-image: url("../img/page-bg-noise-07.png");
 }
 
+.page-bg-blueprint {
+    background-image: url("../img/Blueprints/BlueprintBackground.svg");
+}
+
+.page-bg-blueprint-bw {
+    background-image: url("../img/Blueprints/BlueprintBackgroundBW.svg");
+}
+
+.page-content {
+    margin: 0 .25in;
+    padding-top: 2em;
+}
+
 @media print {
     .page-first {
         page-break-before: auto;
     }
 }
 
-.page-content {
-    margin: 4.5em 8.82% 0; /* = 0.75in ~0.75in 0 at 12pt (1em) */
-    min-height: 57em; /* Leaving 3em at the bottom for footer (0.75in) */
+@media screen and (min-width: 900px), print {
+    .page-content {
+        margin: 0 .75in;
+        padding-top: 4.5em;
+        min-height: 9.5in; /* Leaving 3em at the bottom for footer (0.75in) */
+    }
 }
 
 .page-header {
     display: block;
     position: relative;
     height: 0;
-    top: 1.5em; /* = 0.25in at 12pt (1em) */
-    margin: 0 5.88%; /* = ~0.5in at 12pt (1em) */
+    top: .25in; /* = 0.25in at 12pt (1em) */
+    margin: 0 .5in; /* = ~0.5in at 12pt (1em) */
 }
-/*.page-first .page-header {
-    display: none;
-}*/
+
+@media screen and (max-width: 900px) {
+    .page .page-header {
+        display: none;
+    }
+
+    .section {
+        margin-bottom: 3em;
+    }
+}
+
 .page-header-section-title {
-    position: relative;
-    height: 0;
-    top: 0;
     float: right;
 }
+
 .page-header-doc-title {
-    position: relative;
-    height: 0;
-    top: 0;
+    float: left;
 }
 
 .page-footer {
@@ -310,25 +330,19 @@ td, th {
 }
 
 .relative-footer {
-    margin-top: 1.5em; /* = 0.25in */
-    height: 3em /* = 0.5in */
-}
-
-.absolute-footer {
-    position: relative;
-    height: 0;
-    top: 63em; /* = 10.5in at 12pt (1em) */
     display: none;
 }
 
-@media print {
+@media screen and (min-width: 900px) {
     .relative-footer {
-        display: none;
-    }
-
-    .absolute-footer {
+        margin-top: .25in; /* = 0.25in */
+        height: .5in; /* = 0.5in */
         display: block;
     }
+}
+
+.absolute-footer {
+    display: none;
 }
 
 .appendix-reference {
@@ -408,14 +422,6 @@ td, th {
 .section-title .vertical-spacer
 {
     height: 20.5em;
-}
-
-.music-image {
-    height: 45em;
-}
-
-.music-table td, .music-table th {
-    padding: 0;
 }
 
 .password-table {
@@ -676,6 +682,11 @@ td, th {
 	font-style: italic;
 	font-size:75%;
     margin-top: .5em;
+}
+
+.no-requirement
+{
+    font-style:italic;
 }
 
 /* ==========================================================================
