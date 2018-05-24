@@ -37,7 +37,10 @@ public class playFair : MonoBehaviour
     string SKH = "";
     string Key = "";
     string BufferKey = "";
+
     string Strikes = "";
+    private int _lastStrikeCount;
+
     string correctAns = "";
     string submittedAns;
     string[] possiblePrompts = { "STRIKE", "STRIK", "STRYKE", "STRYK", "ZTRIKE", "ZTRIK", "ZTRYKE", "ZTRYK" };
@@ -484,8 +487,8 @@ public class playFair : MonoBehaviour
                         DebugMsg("Submitted keys: " + submittedAns + ", WRONG! STRIKE!");
                         buttonsInteractable = false;
                         DisplayWrong();
-                        Invoke("reroll", 3);
-                        Invoke("runPlayfair", 3);
+                        //Invoke("reroll", 3);
+                        //Invoke("runPlayfair", 3);
                     }
 
 
@@ -898,6 +901,15 @@ public class playFair : MonoBehaviour
         // Update is called once per frame
         void Update()
     {
+        var strikeCount = Bomb.GetStrikes();
+        if (strikeCount != _lastStrikeCount)
+        {
+            DebugMsg("Strike Detected! Resetting the module!");
 
+            Invoke("reroll", 3);
+            Invoke("runPlayfair", 3);
+
+            _lastStrikeCount = strikeCount;
+        }
     }
 }
