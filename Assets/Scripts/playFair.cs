@@ -550,7 +550,7 @@ public class playFair : MonoBehaviour
     ///Logs a message
     void DebugMsg(string message)
     {
-        Debug.LogFormat("[Playfair Cipher #{0}]: {1}", _moduleId, message);
+        Debug.LogFormat("[Playfair Cipher #{0}] {1}", _moduleId, message);
     }
 
 
