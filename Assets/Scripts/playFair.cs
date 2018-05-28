@@ -453,7 +453,10 @@ public class playFair : MonoBehaviour
             DebugMsg("Table 4 - Bomb has " + Bomb.GetStrikes() + " (" + Strikes + ")" + " Strike(s)!");
             //appendKey();
         }
-
+        else if (Bomb.GetStrikes() < 0)
+        {
+            Strikes = "";
+        }
         else
         {
             DebugMsg("Table 4 - Bomb has 0 Strikes.");
@@ -902,7 +905,7 @@ public class playFair : MonoBehaviour
         void Update()
     {
         var strikeCount = Bomb.GetStrikes();
-        if (strikeCount != _lastStrikeCount)
+        if (strikeCount != _lastStrikeCount && !solved)
         {
             DebugMsg("Strike Detected! Resetting the module!");
 
