@@ -537,7 +537,9 @@ public class playFair : MonoBehaviour
     {
 
         string encryptedAnswer = PlayfairCipher(Key, answer);
-        DebugMsg("Encrypted prompt " + answer + " with key " + "\"" + Key + "\", result is " + "\"" + encryptedAnswer + "\"");
+        DebugMsg("Encrypted Message: " + "\"" + answer + "\"");
+        DebugMsg("With key: " + "\"" + Key + "\"");
+        DebugMsg("Text Displayed on Module: " + "\"" + encryptedAnswer + "?\"");
 
         /*///Disabled cause i'm a bad coder haha xd, wanted to change button position and playfair encipher "YEA" and "NAY" too.
 		string yea = PlayfairCipher(inds, "YEA");
