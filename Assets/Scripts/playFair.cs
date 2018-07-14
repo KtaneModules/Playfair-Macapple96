@@ -49,7 +49,7 @@ public class playFair : MonoBehaviour
     string[] possibleSolutions3 = { "BADC", "ADCB", "DCBA", "CBAD", "BACD", "ACDB", "CDBA", "DBAC" };
     string[] possibleSolutions4 = { "DABC", "ABCD", "BCDA", "CDAB", "DACB", "ACBD", "CBDA", "BDAC" };
 
-    
+
 
     bool buttonsInteractable = false;
     bool solved = false;
@@ -141,7 +141,7 @@ public class playFair : MonoBehaviour
 
         logMatrix(Key);
 
-        
+
 
         buttonsInteractable = true;
 
@@ -247,7 +247,7 @@ public class playFair : MonoBehaviour
 
     void startingTextColor()
     {
-        
+
 
         switch (textcolor)
         {
@@ -286,7 +286,7 @@ public class playFair : MonoBehaviour
     void getFirstKeyHalf()
     {
         bool isBobHere = Bomb.IsIndicatorOn(Indicator.BOB);
-        if(isBobHere)
+        if (isBobHere)
         {
             DebugMsg("BOB IS HOME!");
         }
@@ -294,9 +294,9 @@ public class playFair : MonoBehaviour
         switch (DOW)
         {
             case "Monday":
-                if(isBobHere) { FKH = "HIDDEN"; }
+                if (isBobHere) { FKH = "HIDDEN"; }
                 else { FKH = "PLAY"; }
-                
+
                 break;
 
             case "Tuesday":
@@ -315,9 +315,9 @@ public class playFair : MonoBehaviour
                 break;
 
             case "Friday":
-                if(isBobHere) { FKH = "PARTYHARD"; }
+                if (isBobHere) { FKH = "PARTYHARD"; }
                 else { FKH = "FAIL"; }
-                
+
                 break;
 
             case "Saturday":
@@ -346,39 +346,39 @@ public class playFair : MonoBehaviour
         string[] rule2 = { "CODE", "EDOC", "QUIET", "ETIUQ" };
         string[] rule1 = { "SAFE", "EFAS", "MESSAGE", "GROOVE" };
 
-        
+
 
 
         if (Bomb.IsPortPresent(Port.Parallel) && Bomb.IsPortPresent(Port.Serial)) //Rule 1
         {
             SKH = rule1[textcolor];
             DebugMsg("Table 2 - Rule #1 Applies: \"Both Parallel and Serial Ports are present\"");
-            
+
         }
 
         else if (Bomb.GetSerialNumberNumbers().Sum() > 10) //Rule 2
         {
-            
+
             SKH = rule2[textcolor];
             DebugMsg("Table 2 - Rule #2 Applies: \"Sum of Digits in Serial > 10\"");
-            
+
         }
 
-        
 
-       else if (Bomb.GetBatteryCount(Battery.D) > Bomb.GetBatteryCount(Battery.AA)) //Rule 3
+
+        else if (Bomb.GetBatteryCount(Battery.D) > Bomb.GetBatteryCount(Battery.AA)) //Rule 3
         {
-            
+
             SKH = rule3[textcolor];
             DebugMsg("Table 2 - Rule #3 Applies: \"D Batteries > AA Batteries\"");
-            
+
         }
 
-        
+
 
         else
         {
-            
+
             SKH = rule4[textcolor]; //Otherwise
             DebugMsg("Table 2 - Rule #4 \"No other rule applied\"");
         }
@@ -514,7 +514,7 @@ public class playFair : MonoBehaviour
             else { DebugMsg("Buttons not interactable"); }
         }
         else { DebugMsg("Module already solved!"); }
-        
+
     }
 
     protected bool Solve()
@@ -583,14 +583,14 @@ public class playFair : MonoBehaviour
     {
         buttonsInteractable = true;
         ScreenText.text = "";
-        
+
     }
 
     void ClearDisplay()
     {
         buttonsInteractable = false;
         ScreenText.text = "";
-        
+
     }
 
     ///Get a prompt to be playfair enciphered, also pick the correct answer depending on the prompt.
@@ -605,7 +605,7 @@ public class playFair : MonoBehaviour
         if (textcolor == 1) { correctAns = possibleSolutions2[solutionnumber]; DebugMsg("Message is " + "\"" + answer + "\", color is Blue, expecting " + "\"" + correctAns + "\""); }
         if (textcolor == 2) { correctAns = possibleSolutions3[solutionnumber]; DebugMsg("Message is " + "\"" + answer + "\", color is Orange, expecting " + "\"" + correctAns + "\""); }
         if (textcolor == 3) { correctAns = possibleSolutions4[solutionnumber]; DebugMsg("Message is " + "\"" + answer + "\", color is Yellow, expecting " + "\"" + correctAns + "\""); }
-        
+
     }
 
 
@@ -616,7 +616,7 @@ public class playFair : MonoBehaviour
 
         List<char> matrixout = new List<char>();
         var alphabet = "ABCDEFGHIKLMNOPQRSTUVWXYZ"; //missing 'J' on purpose
-        
+
 
 
         for (int i = 0; i < key.Length; i++)
@@ -857,13 +857,13 @@ public class playFair : MonoBehaviour
 
         if (presses.Length < 2 || (presses[0] != "submit" && presses[0] != "press"))
             yield break;
-        else 
+        else
         {
             var buttons = new List<KMSelectable>();
 
             foreach (var press in presses.Skip(1))
             {
-                if (press.Equals("A",StringComparison.InvariantCultureIgnoreCase))
+                if (press.Equals("A", StringComparison.InvariantCultureIgnoreCase))
                 {
                     buttons.Add(A);
                 }
@@ -882,29 +882,37 @@ public class playFair : MonoBehaviour
                 else
                 {
                     //DebugMsg("BreakTwitchxd");
-                    yield break;
+                    yield return string.Format("sendtochat It'd be really nice if you also tell me which buttons to press Kappa");
                 }
             }
 
             if (buttons.Count > 0)
             {
-                yield return null;
-                foreach (var bpress in buttons)
+                if (buttonsInteractable)
                 {
-                    //DebugMsg("xd");
-                    bpress.OnInteract();
-                    yield return new WaitForSeconds(.1f);
+                    yield return null;
+                    foreach (var bpress in buttons)
+                    {
+                        //DebugMsg("xd");
+                        bpress.OnInteract();
+                        yield return new WaitForSeconds(.1f);
+                    }
+                }
+                else
+                {
+                    yield return string.Format("sendtochat Hey hey! Calm your fingers, baby! Can't press until the message is shown again! SoBayed");
                 }
             }
+            
         }
     }
 
-        //lights off room shown
+    //lights off room shown
 
 
 
-        // Update is called once per frame
-        void Update()
+    // Update is called once per frame
+    void Update()
     {
         var strikeCount = Bomb.GetStrikes();
         if (strikeCount != _lastStrikeCount && !solved)
