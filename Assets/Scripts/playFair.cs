@@ -66,6 +66,7 @@ public class playFair : MonoBehaviour
     private Color Blue = Color.blue;
     private Color Magenta = Color.magenta;
     private Color Orange = new Color(0.9f, 0.55f, 0.2f);
+    private Color White = Color.white;
 
     private Color Black = Color.black;
 
@@ -116,6 +117,8 @@ public class playFair : MonoBehaviour
         SKH = "";
         Key = "";
         Strikes = "";
+        ScreenText.color = White;
+        ScreenText.text = "PARSING";
 
         startingTextColor();
 
@@ -140,8 +143,6 @@ public class playFair : MonoBehaviour
         ClearDisplay();
 
         logMatrix(Key);
-
-
 
         buttonsInteractable = true;
 
@@ -541,10 +542,7 @@ public class playFair : MonoBehaviour
         DebugMsg("With key: " + "\"" + Key + "\"");
         DebugMsg("Text Displayed on Module: " + "\"" + encryptedAnswer + "?\"");
 
-        /*///Disabled cause i'm a bad coder haha xd, wanted to change button position and playfair encipher "YEA" and "NAY" too.
-		string yea = PlayfairCipher(inds, "YEA");
-		string nay = PlayfairCipher(inds, "NAY");
-		*/
+        
         ScreenText.text = encryptedAnswer + "?";
         buttonsInteractable = true;
     }
@@ -582,14 +580,16 @@ public class playFair : MonoBehaviour
     void ResetDisplay()
     {
         buttonsInteractable = true;
-        ScreenText.text = "";
+        
+        ScreenText.text = "PARSING";
 
     }
 
     void ClearDisplay()
     {
         buttonsInteractable = false;
-        ScreenText.text = "";
+        
+        ScreenText.text = "PARSING";
 
     }
 
@@ -907,6 +907,12 @@ public class playFair : MonoBehaviour
         }
     }
 
+    private void reinit()
+    {
+        reroll();
+        runPlayfair();
+    }
+
     //lights off room shown
 
 
@@ -919,8 +925,8 @@ public class playFair : MonoBehaviour
         {
             DebugMsg("Strike Detected! Resetting the module!");
 
-            Invoke("reroll", 3);
-            Invoke("runPlayfair", 3);
+            Invoke("reinit", 3);
+            
 
             _lastStrikeCount = strikeCount;
         }
