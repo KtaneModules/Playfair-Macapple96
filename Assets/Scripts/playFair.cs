@@ -39,6 +39,7 @@ public class playFair : MonoBehaviour
     string BufferKey = "";
 
     string Strikes = "";
+    
     private int _lastStrikeCount;
 
     string correctAns = "";
@@ -491,8 +492,8 @@ public class playFair : MonoBehaviour
                         DebugMsg("Submitted keys: " + submittedAns + ", WRONG! STRIKE!");
                         buttonsInteractable = false;
                         DisplayWrong();
-                        //Invoke("reroll", 3);
-                        //Invoke("runPlayfair", 3);
+                        Invoke("reinit", 3);
+                        
                     }
 
 
@@ -909,6 +910,7 @@ public class playFair : MonoBehaviour
 
     private void reinit()
     {
+        _lastStrikeCount = Bomb.GetStrikes();
         reroll();
         runPlayfair();
     }
@@ -923,12 +925,11 @@ public class playFair : MonoBehaviour
         var strikeCount = Bomb.GetStrikes();
         if (strikeCount != _lastStrikeCount && !solved)
         {
-            DebugMsg("Strike Detected! Resetting the module!");
+            _lastStrikeCount = strikeCount;
+
+            DebugMsg("Strike detected somewhere in the bomb! Resetting the module!");
 
             Invoke("reinit", 3);
-            
-
-            _lastStrikeCount = strikeCount;
         }
     }
 }
