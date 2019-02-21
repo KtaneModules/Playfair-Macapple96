@@ -368,7 +368,7 @@ public class playFair : MonoBehaviour
 
 
 
-        else if (Bomb.GetBatteryCount(Battery.D) > Bomb.GetBatteryCount(Battery.AA)) //Rule 3
+        else if (Bomb.GetBatteryCount(Battery.D) > (Bomb.GetBatteryCount(Battery.AA) + Bomb.GetBatteryCount(Battery.AAx3) + Bomb.GetBatteryCount(Battery.AAx4))) //Rule 3
         {
 
             SKH = rule3[textcolor];
